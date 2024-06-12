@@ -1,0 +1,15 @@
+name: Docker测试1
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 检出
+      uses: actions/checkout@master
+    - name: 测试1
+      run: docker pull ubuntu:latest
+    - name: 测试2
+      run: docker tag ubuntu:latest docker.cattysteve.top/library/ubuntu:latest
+    - name: 测试3
+      run: docker images
