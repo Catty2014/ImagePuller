@@ -13,3 +13,7 @@ jobs:
       run: docker tag ubuntu:latest docker.cattysteve.top/library/ubuntu:latest
     - name: 测试3
       run: docker images
+    - name: 测试4
+      run: docker login -u github -p ${{ secrets.harbor_password }} docker.cattysteve.top
+    - name: 推送
+      run: docker push docker.cattysteve.top/library/ubuntu:latest
