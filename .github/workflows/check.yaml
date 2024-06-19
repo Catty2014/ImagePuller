@@ -7,13 +7,5 @@ jobs:
     steps:
     - name: 检出
       uses: actions/checkout@master
-    - name: 测试1
-      run: docker pull ubuntu:latest
-    - name: 测试2
-      run: docker tag ubuntu:latest docker.cattysteve.top/library/ubuntu:latest
-    - name: 测试3
-      run: docker images
-    - name: 测试4
-      run: docker login -u github -p ${{ secrets.harbor_password }} docker.cattysteve.top
-    - name: 推送
-      run: docker push docker.cattysteve.top/library/ubuntu:latest
+    - name: 拉取镜像
+      run: bash image.sh ${{ secrets.harbor_password }}
